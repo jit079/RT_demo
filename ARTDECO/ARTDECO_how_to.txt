@@ -1,0 +1,46 @@
+1. Download the zip files (artdeco.zip and data_artdeco.zip) to your working directory and unzip 
+
+$ unzip artdeco.zip
+$ unzip data_artdeco.zip
+
+2. Go to the directory 'artdeco/fortran/', type:
+
+$ cd artdeco/fortran/
+
+Create some directories
+
+$ mkdir f2py
+$ mkdir mod
+$ mkdir obj
+$ mkdir out
+
+3. You can now compile the code from Artdeco/fortran/src
+
+$ cd src
+$ make
+
+To do this, you need a Fortran 90/95 compiler and f2py (Fortran-Python interface tools provided with the numpy library). You need Python 3. 
+
+4. Go back to the root directory, and run the example code
+
+$ cd ../../../
+
+Change the paths at the top of the file, for example:
+
+# These directories must be changed according to your installation
+
+dir_data = "your_working_directory/data_artdeco/"
+
+dir_artdeco = "your_working_directory/artdeco/fortran/"
+
+dir_pyartdeco = "your_working_directory/pyartdeco/"
+
+
+"your_working_directory" is the directory where you save the artedco and data_artdeco zip files.
+
+
+$ python example_use.py
+
+
+5. Once the code is successively run, the plots of simulated TOA and BOA flux, TOA upwelling radiance, and TOA reflectance are saved in your working directory.
+

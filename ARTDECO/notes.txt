@@ -1,0 +1,79 @@
+(1) For the output parameters, we need not only direct fluxes, but total fluxes (direct + diffuse) just above the surface. Do the fluxes labeled downwelling, upwelling correspond to total fluxes or direct fluxes? If they correspond to total fluxes, then where are the direct fluxes? Does directional downwelling mean radiance arriving at the surface? 
+
+downwelling and upwelling label correspond to total fluxes. A third flux in output is direct downwelling : 
+
+flux: flux (W m-2), dimensions (nsza, 3, nalt_atm, nlambda), 3 values are downwelling / upwelling / directional downwelling
+
+(2) In the code 'example_use.py',
+
+# number of computationnal streams
+nstreams_init = 8
+# nmat = 1: I is computed
+# nmat = 3: I, Q and U are computed
+nmat=1
+
+What is number of computational streams? Can I change it to different values? What are the other values of nmat, or nmat can only be 1 and 3?
+
+
+The number of streams is due to the method used to solve the RT equation: discrete ordinates. You can change the number of streams, to 2, 4, 6, 8, 12, etc. More streams means more accurate results. nmat is to specify if you want to use polarized results or not. I am not sure if mat = 2 is an option. But we want to use either 1 or 3.
+
+(3) Just curious, what does filters, trunc_method, rt_model, corint, thermal respresent?
+
+# you should probably not change the following keywords
+keywords = ['nowarn', 'od_no_check']
+kdis_model = "ckdmip_hypernav_mergedmixed"
+mode = 'kdis ' + kdis_model
+filters = ['none']
+trunc_method="dm"
+rt_model="doad"
+corint=True
+thermal=False
+
+Filters would probably refer to spectral bands (spectral response), truncates-method, would be the method to truncate the phase function (a procedure often use because phase function varies a lot at small scattering angles (d-m would mean delta-M method). kdis refers to the k-distribution method to account for gaseous transmittance. therml refers to thermal radiation which, when set to false is neglected (may affect the signal at long wavelengths > 3 micron). doad is the method to solve RT equation, in this case doad, discrete ordinates method. The parameter corint tells if the intensity correction as described by Nakajima, T. / Tanaka, M. , Algorithms for radiative intensity calculations in moderately thick atmospheres using a truncation approximation, 1988-07, jqsrt , Vol. 40, p. 51-69. The TMS (first order scattering correction) is applied in ARTDECO. It applies to both the atmosphere and the surface.
+
+
+(4) What are the boundaries for? Is this the wavelength boundary?
+
+wlptcle = [0.1, 100.0] # the reading of optical properties files will be restricted to that boundaries, this should be consistent with the computation you want to make, otherwise it will complain
+
+The calculations are made for wavelengths from 0.1 to 100 micron
+
+(5) In the code, ppmv = [ 208493.3747, -1, -1] is used to specify the amount of gaseous absorber [O2,O3,H2O]. What does -1 mean? If we need to use units of surface pressure, atm.cm, and g/cm^2, how can we specify in the code? Where can we specify the surface pressure?
+
+value -1 in ppmv array means the molar fraction altitude profile as described in atm_afgl_us62_red.dat file is considered. For "well mixed" gases, the molar fraction is considered constant over the column and a single value is provided in ppmv array.
+
+You can provide surface pressure, h2o and o3 column as parameters when loading the atmosphere in the script :
+
+atmos = pyartdeco.atmosphere(artdeco_in, dir_data, atm, gas, ppmv, 'ascii', wldepol, depol, interp=True, kdis=kdis, DU_o3 = -1, P0 = -1, water = -1)
+
+It will adapt the values that are in the file you read.
+DU_o3 is Dobson unit
+P0 in hPa
+water in g/cm2
+
+A value of -1 just keep the value as in your file
+
+
+(6) What are the differences of the three files, opt_baum_ice_ghm.h5, opt_libradtran_liquid.h5, and opt_opac.h5? Are they for different types of clouds/particles?
+
+these files should correspond to optical properties of clouds and aerosols.
+
+
+(7) In the code, what is the definition of VAA? Is it the relative azimuth angle? What is the convention for VAA, i.e., does VAA = 0 mean that the directions of the Sun and of the satellite are the same or are at 180 deg?
+
+VAA is indeed the relative azimuth. VAA=0 means forward scattering, VAA=180 then means backward scattering.
+
+
+(8) As I checked, the wavelength in the output ranges from 400.25 nm to 1049.75 nm with an interval of 0.5 nm. Is this correct?
+
+Correct. This corresponds to "micro-channels" (gate function spectral response) centered on wavelengths started at 400.25 with a spectral width of 0.5nm. The kdistribution definition file actually contains a broader spectral domain but we limit the computation between 400.25 and 1049.75 nm (using variable wavel=[0.4,1.1] at the beginning of the file) because the aerosols/clouds optical properties are not defined outside that spectral range.
+
+
+(9) Since Morel model is used, I wonder what is done for wavelengths <0.4 and >0.7 micron. As I checked, wavelength must be larger than 400 nm. The values at wavelengths <400 nm are forced to the same as what is obtained for 400 nm. Also the values at wavelengths >700 nm are forced to be 0. Is this correct?
+
+For wvl < 400nm or wvl >700 nm, reflectance is assumed 0 as of  subroutine morcasiwat() in src/surface/brdf_ocean.f90.
+
+
+
+
+

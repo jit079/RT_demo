@@ -1,0 +1,7 @@
+This code simulates BOA and TOA irradiance/reflectance for a typical atmosphere (Ozone 300 Dobson, pressure 1000 mb, and water vapor 2 g/cm^2) with maritime aerosols (AOT550=0.05,humidity 90.0%, scale height of 2 km) and a typical ocean surface (Chl=0.1 mg/m3, salinity 34.3 ppt, wind speed 5 m/s), with SZA, VZA, and RAZ of 20, 30, 90 degrees. 
+
+
+To run the code, 'python example_use.py'.
+
+
+
