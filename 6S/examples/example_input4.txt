@@ -1,0 +1,15 @@
+0 (User defined)
+0.0 0 30.0 90.0 1 1 (solar zenith angle, solar azimuth angle, view zenith angle, view azimuth angle, month, day)
+2 Midlatitude Summer
+4 (1 - continental, 2 - maritime, 3 - urban, 4 - define using basic components, 5- desert, 6 - Biomass etc.)
+0.25 0.25 0.25 025 (% OF:DUST-LIKE,WATER-SOL,OCEANIC,SOOT)
+0
+0.5 value (aerosol optical thickness at 550 nm)
+-0.5 (target at 0.5 km)
+-5 (plane at 5 km above ground level)
+-1.5 -0.35 (UH2O and UO3 under the plane not available)
+0.25 (aerosol optical thickness under the plane at 550 nm)
+11 (AVHRR 1 (NOAA 9) BAND)
+1 (GROUND TYPE,I.E. NON UNIFORME SURFACE)
+2  1  0.50 (TARGET, ENV., RADIUS (KM))
+-0.10 (ATMOSPHERIC CORRECTION OF RAPP=0.10)

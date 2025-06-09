@@ -1,0 +1,16 @@
+0 (User defined)
+0.0 0 30.0 90.0 1 1 (solar zenith angle, solar azimuth angle, view zenith angle, view azimuth angle, month, day)
+0 (No Gaseous Absorptio)
+1 Continental Model (1 - continental, 2 - maritime, 3 - urban, 4 - define using basic components, 5- desert, 6 - Biomass etc.)
+0
+0.10 value (aerosol optical thickness at 550 nm)
+0 (target level)
+-1000 (sensor level)
+-1 monochromatic
+0.412 (wavelength in microns)
+0 Homogeneous surface
+1 (directional effects)
+6 Ocean
+5.0 45 35 0.03 (wind speed, wind direction, salinity, chl concentration)
+-2 No atm. corrections selected
+

@@ -1,0 +1,17 @@
+0 (User defined)
+40.0 100.0 45.0 50.0 7 23 (solar zenith angle, solar azimuth angle, view zenith angle, view azimuth angle, month, day)
+8 option for Water Vapor and Ozone
+3.0 0.3 Water Vapor (g/cm2) and Ozone (cm-atm)
+2 Maritime Model (1 - continental, 2 - maritime, 3 - urban, 4 - define using basic components, 5- desert, 6 - Biomass etc.)
+0
+0.2 value (aerosol optical thickness at 550 nm)
+0 (target level)
+-1000 (sensor level)
+0 constant filter function
+0.4 0.5 (wavelength in microns)
+0 Homogeneous surface
+1 (directional effects)
+6 Ocean
+5.0 45 35 0.03 (wind speed, wind direction, salinity, chl concentration)
+-2 No atm. corrections selected
+

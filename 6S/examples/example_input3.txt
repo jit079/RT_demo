@@ -1,0 +1,14 @@
+0 (User defined)
+61.23 0 18.78 159.2 4 30 (solar zenith angle, solar azimuth angle, view zenith angle, view azimuth angle, month, day)
+2 Midlatitude Summer
+3 Urban Model (1 - continental, 2 - maritime, 3 - urban, 4 - define using basic components, 5- desert, 6 - Biomass etc.)
+0
+0.15 value (aerosol optical thickness at 550 nm)
+0 (target level)
+-1000 (sensor level)
+42 (chosen MODIS band)
+0 Homogeneous surface
+1 (directional effects)
+6 Ocean
+5.0 45 35 0.03 (wind speed, wind direction, salinity, chl concentration)
+-2 No atm. corrections selected

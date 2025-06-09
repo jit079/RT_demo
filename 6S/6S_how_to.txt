@@ -1,0 +1,76 @@
+1. Compile the 6S code
+************************************************************
+
+6S is provided as a number of Fortran 77 source-code files and must be compiled for your specific compute system.
+
+Download the zip file to your working directory and unzip it, then go to the directory '6sv4.1'. In your command window, type:
+
+$ cd 6sv4.1
+
+To compile the code, type:
+
+$ make
+
+If the code compiles successfully, you will be able to see “sixs” generated in the ‘6sv4.1” folder.
+
+gfortran is required for the compiling. To check whether you have gfortran already installed
+
+$ which gfortran
+
+If nothing is returned then gfortran is not installed. To install gfortran type:
+
+$ sudo apt install gfortran
+
+To check what version was installed type:
+
+$ gfortran --version
+
+In Mac, use the following command to install gfortran:
+
+$ brew install gcc
+
+To install 6S in Windows, please refer to this link (https://py6s.readthedocs.io/en/latest/installation.html), scroll down to "Installing 6S" to follow the instruction for Windows.
+
+************************************************************
+
+
+
+
+2. Example of inputs 
+************************************************************
+
+Attached is a typical input file (example_input1.txt).
+
+0 (User defined)
+0.0 0 30.0 90.0 1 1 (solar zenith angle, solar azimuth angle, view zenith angle, view azimuth angle, month, day)
+0 (No Gaseous Absorptio)
+1 Continental Model (1 - continental, 2 - maritime, 3 - urban, 4 - define using basic components, 5- desert, 6 - Biomass etc.)
+0
+0.10 value (aerosol optical thickness at 550 nm)
+0 (target level)
+-1000 (sensor level)
+-1 monochromatic
+0.412 (wavelength in microns)
+0 Homogeneous surface
+1 (directional effects)
+6 Ocean
+5.0 45 35 0.03 (wind speed, wind direction, salinity, chl concentration)
+-1 No atm. corrections selected
+
+
+You can also refer to the Appendix I and II of 6S User Guide Part 1 for more details.
+
+************************************************************
+
+
+
+3. How to run 6S
+************************************************************
+
+To run 6S code type (assuming you are in the root directory)
+
+$ ./6sv4.1/sixs < ./examples/example_input1.txt > ./examples/example_output1.txt
+
+./6sv4.1/sixs is the path of “sixs”, the input file is './examples/example_input1.txt' and the output is saved as './examples/example_output1.txt'
+
+************************************************************

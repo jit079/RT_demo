@@ -1,0 +1,6 @@
+This code simulate TOA reflectance/radiance and downwelling irradiance, for typical atmosphere (water vapor 2 g/cm2, Ozone 0.3 cm-atm, maritime aerosol, aot550=0.1), typical ocean (Chl=0.1 mg/m3, wind speed 5 m/s), and geometry (SZA=30, SAZ=0, VZA=45, VAZ=90), as a function of wavelength, from 400 to 900 nm by step of 5 nm.
+
+To run the code, 'python 6S_typical_sim.py'.
+
+
+
