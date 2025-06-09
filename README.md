@@ -21,7 +21,7 @@
 
 <LI><b>Atmospheric Radiative Transfer Database for Earth Climate Observation</b> (ARTDECO, <A HREF="https://www.icare.univ-lille.fr/artdeco/"> official web site</A>)
   <UL>
-  <LI> <A HREF="ARTDECO/artdeco.zip">artdeco.zip</A>, <A HREF="[ARTDECO/data_artdeco.zip](https://drive.google.com/file/d/11BIyaYWRdAeI2Ba2mWwVHINoHup8lCpN/view?usp=sharing)">data_artdeco.zip</A>, both need to be downloaded. 
+  <LI> <A HREF="ARTDECO/artdeco.zip">artdeco.zip</A>, <A HREF="https://drive.google.com/file/d/11BIyaYWRdAeI2Ba2mWwVHINoHup8lCpN/view?usp=share_link">data_artdeco.zip</A>, both need to be downloaded. 
   <LI> <A HREF="ARTDECO/ARTDECO_how_to.txt">How to run ARTDECO</A>
   <LI> <A HREF="ARTDECO/ARTDECO_example_description.txt">Example of typical simulations</A>: <A HREF="ARTDECO/example_use.py">code</A>, output figures (<A HREF="ARTDECO/flux.png">TOA and BOA flux</A>, <A HREF="ARTDECO/rad.png">TOA radiance</A>, <A HREF="ARTDECO/refl.png">TOA reflectance</A>)
   <LI> <A HREF="ARTDECO/notes.txt">Details regarding the example code</A>
