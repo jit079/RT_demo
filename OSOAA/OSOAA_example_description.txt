@@ -1,0 +1,7 @@
+This example code simulates reflectance and polarized reflectance at TOA and BOA level as a function of wavelength 400-900 nm by steps of 5 nm for a typical atmosphere and ocean containing phytoplankton and CDOM, and a typical geometry. The water model in OSOAA goes from 400 to 700 nm. Outside this range the phytoplankton absorption is forced to be zero.
+
+To run the code, 'bash ./run_OSOAA_example.ksh', and the simulations are saved in $OSOAA_ROOT/example_RESULTS.
+
+Use the python script 'plot_OSOAA.py' to plot reflectance and polarized reflectance at TOA and BOA level as a function of wavelength. 
+
+
