@@ -1,0 +1,15 @@
+This example code simulates reflectance and polarized reflectance at TOA and BOA level as a function of wavelength 300-900 nm by steps of 5 nm for a typical atmosphere with clouds, ocean containing phytoplankton, and a typical geometry. 
+
+To run the code, 
+
+1. download 'par_5nm.zip' and SMARTG_examp.py
+
+2. Unzip 'par_5nm.zip'. In the code, change the path to your_directory/par_5nm/
+
+kpar=KDIS('par_5nm','/media/jit079/nvme0n1/PAR/Kdistribution/par_5nm/')
+
+3. Run the code
+
+$ python SMARTG_example.py
+
+
